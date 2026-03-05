@@ -15,27 +15,52 @@ import ServiceGiftingPRKits from '@/components/services/ServiceGiftingPRKits';
 export default function ServicesPage() {
     return (
         <main className="bg-white">
-        <ServicesHero />
-        
-        <ServiceRelease />
-        
-        <ServiceEvents />
+            <ServicesHero />
+            
+            {/* 04. RELEASE PARTIES */}
+            <section id="release-parties" className="scroll-mt-20">
+                <ServiceRelease />
+            </section>
+            
+            <section id="events" className="scroll-mt-20">
+                <ServiceEvents />
+            </section>
 
-        <ServiceBranding />
+            <section id="branding" className="scroll-mt-20">
+                <ServiceBranding />
+            </section>
 
-        <ServiceArtDirection />
-        
-        <ServiceFashionStyling />        
+            {/* 03. ART DIRECTION */}
+            <section id="art-direction" className="scroll-mt-20">
+                <ServiceArtDirection />
+            </section>
+            
+            <section id="fashion-styling" className="scroll-mt-20">
+                <ServiceFashionStyling />
+            </section>
 
-        <ServiceStylingVideoclips />
+            {/* 01. STYLING VIDEOCLIPS */}
+            <section id="styling-videoclips" className="scroll-mt-20">
+                <ServiceStylingVideoclips />
+            </section>
 
-        <ServicePRFashion />
+            <section id="pr-fashion" className="scroll-mt-20">
+                <ServicePRFashion />
+            </section>
 
-        <ServiceSocialMedia />
+            <section id="social-media" className="scroll-mt-20">
+                <ServiceSocialMedia />
+            </section>
 
-        <ServiceArtistExperiences />
+            {/* 05. ARTIST EXPERIENCES */}
+            <section id="artist-experiences" className="scroll-mt-20">
+                <ServiceArtistExperiences />
+            </section>
 
-        <ServiceGiftingPRKits />
+            {/* 02. GIFTING & PR KITS */}
+            <section id="gifting-pr-kits" className="scroll-mt-20">
+                <ServiceGiftingPRKits />
+            </section>
 
         </main>
     );

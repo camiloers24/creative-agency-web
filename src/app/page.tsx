@@ -82,7 +82,7 @@ export default function Home() {
           className={`flex overflow-x-auto snap-x md:snap-none snap-mandatory no-scrollbar gap-4 px-6 md:px-16 pb-10 ${isDown ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
         >
           {/* 01. STYLING VIDEOCLIPS */}
-          <Link href="/services" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
+          <Link href="/services#styling-videoclips" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
             <Image 
               src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200" 
               alt="STYLING VIDEOCLIPS" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-60 group-hover:opacity-100"
@@ -95,7 +95,7 @@ export default function Home() {
           </Link>
 
           {/* 02. GIFTING & PR KITS */}
-          <Link href="/services" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
+          <Link href="/services#gifting-pr-kits" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
             <Image 
               src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1200" 
               alt="GIFTING & PR KITS" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-60 group-hover:opacity-100"
@@ -108,7 +108,7 @@ export default function Home() {
           </Link>
 
           {/* 03. ART DIRECTION */}
-          <Link href="/services" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
+          <Link href="/services#art-direction" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
             <Image 
               src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200" 
               alt="ART DIRECTION" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-60 group-hover:opacity-100"
@@ -121,7 +121,7 @@ export default function Home() {
           </Link>
 
           {/* 04. RELEASE PARTIES */}
-          <Link href="/services" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
+          <Link href="/services#release-parties" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
             <Image 
               src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200" 
               alt="RELEASE PARTIES" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-60 group-hover:opacity-100"
@@ -134,7 +134,7 @@ export default function Home() {
           </Link>
 
           {/* 05. ARTIST EXPERIENCES */}
-          <Link href="/services" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
+          <Link href="/services#artist-experiences" className="relative flex-none w-[80vw] md:w-[40vw] aspect-[4/5] md:aspect-[16/10] snap-start group overflow-hidden bg-[#111]">
             <Image 
               src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1200" 
               alt="ARTIST EXPERIENCES" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 opacity-60 group-hover:opacity-100"
