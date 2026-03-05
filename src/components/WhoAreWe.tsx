@@ -46,10 +46,16 @@ export default function WhoAreWe() {
       {/* MITAD INFERIOR (Mobile) / DERECHA (Desktop): Imagen "Glitch" */}
       <div className="relative w-full md:w-1/2 h-[70vh] md:h-screen bg-[#0a0a0a]">
         
-        {/* Logo 'F' en la esquina inferior derecha de la imagen */}
-        <div className="absolute bottom-10 right-8 md:right-16 z-20 flex flex-col items-center">
-           <div className="w-12 md:w-16 h-[3px] bg-[#D80E0E] mb-1"></div>
-           <span className="text-[#D80E0E] font-black text-4xl md:text-6xl leading-none italic">F</span>
+        {/* Icono reemplazando la 'F' en la esquina inferior derecha */}
+        <div className="absolute bottom-10 right-8 md:right-16 z-20 flex flex-col items-center">                 
+          <Image 
+            src="/frame-icon.svg" 
+            alt="FRAME Icon"
+            width={64} 
+            height={64}
+            className="w-12 h-12 md:w-16 md:h-16 object-contain"
+            priority // Añadimos priority si este icono es importante para el LCP
+          />
         </div>
 
         {/* Grid de 3 columnas para el efecto de repetición */}
