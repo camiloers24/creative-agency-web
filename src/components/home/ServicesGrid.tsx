@@ -22,11 +22,11 @@ export default function ServicesGrid() {
           <span className="hidden md:block font-mono text-xs uppercase tracking-widest text-ink">Expertise</span>
         </div>
 
-        <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-pl-5 md:overflow-visible -mx-5 px-5 md:mx-0 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {SERVICES.map(({ id, title, src, offset }, i) => (
-            <Reveal key={id} delay={i * 0.08} className={`flex-none w-[62vw] md:w-auto snap-start ${offset}`}>
-            <Link href={`/services#${id}`} className="group block">
-              <div className="relative aspect-[3/4] overflow-hidden bg-ink">
+            <Reveal key={id} delay={i * 0.08} className={offset}>
+            <Link href={`/services#${id}`} className="group block bg-white p-2 pb-3 shadow-sm md:bg-transparent md:p-0 md:pb-0 md:shadow-none">
+              <div className="relative aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-ink">
                 <Image
                   src={`https://images.unsplash.com/${src}?q=80&w=900`}
                   alt={title}
@@ -34,7 +34,7 @@ export default function ServicesGrid() {
                   className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
               </div>
-              <div className="mt-2 flex justify-between font-mono text-[9px] md:text-[10px] uppercase text-ink">
+              <div className="mt-3 md:mt-2 px-1 md:px-0 flex justify-between font-mono text-[11px] md:text-[10px] uppercase text-ink">
                 <span className="group-hover:text-frame-red transition-colors">{title}</span>
                 <span>(00{i + 1})</span>
               </div>

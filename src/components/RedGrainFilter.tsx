@@ -8,6 +8,12 @@ export default function RedGrainFilter() {
         <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" result="n" />
         <feDisplacementMap in="b" in2="n" scale="22" />
       </filter>
+      {/* Versión suave para móvil: las letras siguen siendo legibles */}
+      <filter id="redGrainSm" x="-10%" y="-20%" width="120%" height="140%">
+        <feGaussianBlur stdDeviation="5" result="b" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n" />
+        <feDisplacementMap in="b" in2="n" scale="10" />
+      </filter>
     </svg>
   );
 }

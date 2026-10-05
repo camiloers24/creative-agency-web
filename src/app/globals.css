@@ -20,6 +20,16 @@
     radial-gradient(ellipse at 40% 95%, rgba(0, 0, 0, 0.03), transparent 45%);
 }
 
+/* Palabra roja desenfocada con grano (ref. Gills): más suave en móvil */
+.red-blur-word {
+  filter: url(#redGrainSm);
+}
+@media (min-width: 768px) {
+  .red-blur-word {
+    filter: url(#redGrain);
+  }
+}
+
 /* Polaroid / foto con marco (ref. Mzia) */
 .polaroid {
   background: #fff;

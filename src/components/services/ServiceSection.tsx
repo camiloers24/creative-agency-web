@@ -84,17 +84,17 @@ export default function ServiceSection({ service }: { service: Service }) {
               className={
                 single
                   ? 'max-w-4xl'
-                  : 'flex md:grid gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-pl-5 md:overflow-visible -mx-5 px-5 md:mx-0 md:px-0 md:items-start'
+                  : 'grid grid-cols-2 gap-2 md:gap-4 md:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))] md:items-start'
               }
-              style={single ? undefined : { gridTemplateColumns: `repeat(${images.length}, minmax(0, 1fr))` }}
+              style={single ? undefined : ({ '--cols': images.length } as React.CSSProperties)}
             >
               {images.map((src, i) => (
                 <Reveal
                   key={src + i}
                   delay={i * 0.08}
-                  className={`${single ? '' : `flex-none w-[62vw] md:w-auto snap-start ${OFFSETS[i % OFFSETS.length]}`}`}
+                  className={single ? '' : `${i % 2 === 1 ? 'mt-6 md:mt-0' : ''} ${i === images.length - 1 && images.length % 2 === 1 ? 'col-span-2 md:col-span-1' : ''} ${OFFSETS[i % OFFSETS.length]}`}
                 >
-                  <div className={`relative overflow-hidden bg-ink ${single ? 'aspect-[16/10]' : 'aspect-[3/4]'}`}>
+                  <div className={`relative overflow-hidden bg-ink ${single ? 'aspect-[16/10]' : i === images.length - 1 && images.length % 2 === 1 ? 'aspect-[16/10] md:aspect-[3/4]' : 'aspect-[3/4]'}`}>
                     <Image
                       src={src}
                       alt={`${alt} ${i + 1}`}

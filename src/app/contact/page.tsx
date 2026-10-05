@@ -17,7 +17,7 @@ export default function ContactPage() {
 
         <div className="paper-card relative z-10 mx-auto max-w-[1400px] rounded-3xl px-5 md:px-12 pt-28 md:pt-36 pb-14 md:pb-20 overflow-hidden">
           <div className="relative select-none">
-            <h1 className="font-display text-ink uppercase leading-[0.85] text-[15vw] md:text-[min(14vw,200px)]">
+            <h1 className="font-display text-ink uppercase leading-[0.85] text-[13vw] md:text-[min(14vw,200px)]">
               Ready to work <br />
               <span className="flex items-center gap-4 md:gap-8">
                 <span className="h-[3vw] w-[18vw] md:w-[12vw] bg-frame-red inline-block" />

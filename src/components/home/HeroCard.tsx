@@ -21,21 +21,22 @@ export default function HeroCard() {
 
       <div className="paper-card relative z-10 mx-auto max-w-[1400px] rounded-3xl px-5 md:px-12 pt-28 md:pt-32 pb-12 md:pb-16 overflow-hidden">
         {/* WORDMARK: FRAME rojo desenfocado con grano (ref. Gills) */}
-        <div className="relative select-none">
+        <div className="relative select-none max-md:pb-16">
+          <div className="max-md:origin-top max-md:scale-y-[1.5]">
           <span
             aria-hidden="true"
-            className="block font-display text-frame-red uppercase leading-[0.85] text-center text-[29vw] md:text-[min(25vw,340px)]"
-            style={{ filter: 'url(#redGrain)' }}
+            className="red-blur-word block font-display text-frame-red uppercase leading-[0.85] text-center text-[33vw] md:text-[min(25vw,340px)]"
           >
             FRAME
           </span>
-          <h1 className="absolute left-0 top-0 font-display text-ink uppercase leading-[0.85] text-[11vw] md:text-[min(9vw,130px)]">
+          </div>
+          <h1 className="absolute left-0 top-0 font-display text-ink uppercase leading-[0.85] text-[15vw] md:text-[min(9vw,130px)]">
             Frame
           </h1>
           <span className="absolute right-0 top-[8%] font-mono text-[10px] md:text-xs uppercase tracking-widest text-ink">
             Creatives&apos; Lab
           </span>
-          <span className="absolute right-0 bottom-[6%] font-display text-ink uppercase text-[7vw] md:text-[min(4vw,56px)] leading-none">
+          <span className="absolute right-0 bottom-[4%] font-display text-ink uppercase text-[5.5vw] md:text-[min(4vw,56px)] leading-none">
             Miami / Mexico City
           </span>
           <Scribble className="absolute left-[46%] top-0 w-12 md:w-20 -rotate-6" />
@@ -53,11 +54,11 @@ export default function HeroCard() {
 
         {/* Bloque tipo Gills: fotos + texto + enlace rojo */}
         <Reveal delay={0.1} className="relative mt-12 md:mt-16 grid grid-cols-5 gap-3 md:gap-5">
-          <div className="relative col-span-1 aspect-[3/4] overflow-hidden bg-ink">
+          <div className="relative col-span-2 md:col-span-1 aspect-[3/4] overflow-hidden bg-ink">
             <Image src={PHOTO_C} alt="" fill className="object-cover grayscale" />
             <XMark className="absolute -top-1 -right-1 w-8 md:w-12" />
           </div>
-          <div className="relative col-span-2 aspect-[3/4] overflow-hidden bg-ink">
+          <div className="relative col-span-3 md:col-span-2 aspect-[3/4] overflow-hidden bg-ink">
             <Image src={PHOTO_B} alt="" fill className="object-cover grayscale" />
             <Heart className="absolute bottom-2 left-2 w-10 md:w-16" />
           </div>
