@@ -28,7 +28,7 @@ export default function HeroCard() {
           >
             FRAME
           </span>
-          <h1 className="absolute left-0 top-0 font-display text-ink uppercase leading-[0.85] text-[16vw] md:text-[min(9vw,130px)]">
+          <h1 className="absolute left-0 top-0 font-display text-ink uppercase leading-[0.85] text-[11vw] md:text-[min(9vw,130px)]">
             Frame
           </h1>
           <span className="absolute right-0 top-[8%] font-mono text-[10px] md:text-xs uppercase tracking-widest text-ink">
