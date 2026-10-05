@@ -5,78 +5,59 @@ export default function WhoAreWe() {
   const whoAreWeImg = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000";
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col md:flex-row bg-white overflow-hidden">
-      
-      {/* MITAD SUPERIOR (Mobile) / IZQUIERDA (Desktop): Textos */}
-      <div className="relative w-full md:w-1/2 min-h-screen pt-32 pb-20 md:py-16 px-8 md:px-16 flex flex-col justify-center">
-        
-        {/* Etiqueta Inferior Izquierda */}
-        <div className="absolute bottom-10 left-8 md:left-16 hidden md:block">
-          <span className="text-[#D80E0E] font-black text-[10px] md:text-sm tracking-[0.3em] uppercase">
-            Frame Creatives Lab
-          </span>
-        </div>
+    <section className="relative w-full bg-black overflow-hidden p-3 md:p-6">
+      <Image src={whoAreWeImg} alt="" fill priority className="object-cover grayscale opacity-80" />
 
-        {/* Contenedor Central de Texto */}
-        <div className="w-full flex flex-col">
-          
-          {/* Título: Ajustado a 18vw en mobile para que sea monumental */}
-          <div className="relative mb-6 md:mb-0">
-             <h2 className="text-[#D80E0E] font-black text-[18vw] md:text-[8vw] leading-[0.8] tracking-tighter uppercase relative z-10">
-               WHO ARE <br /> WE?
-             </h2>
+      <div className="paper-card relative z-10 mx-auto max-w-[1400px] rounded-3xl px-5 md:px-12 pt-28 md:pt-36 pb-12 md:pb-16 overflow-hidden grid md:grid-cols-2 gap-12 md:gap-10">
+        {/* TEXTOS */}
+        <div className="flex flex-col justify-between gap-12">
+          <div>
+            <div className="relative select-none">
+              <div
+                aria-hidden="true"
+                className="font-display text-frame-red uppercase leading-[0.85] text-[24vw] md:text-[min(10vw,150px)]"
+                style={{ filter: 'url(#redGrain)' }}
+              >
+                Who are <br /> we?
+              </div>
+              <h1 className="absolute inset-0 font-display text-ink uppercase leading-[0.85] text-[24vw] md:text-[min(10vw,150px)]">
+                Who are <br /> we?
+              </h1>
+            </div>
+
+            <h2 className="mt-8 font-mono text-[11px] md:text-xs uppercase tracking-widest text-frame-red max-w-sm">
+              FRAME IS A 360° CREATIVE AGENCY BASED IN MIAMI AND MEXICO CITY.
+            </h2>
           </div>
 
-          <h3 className="text-[#D80E0E] font-black text-[12px] md:text-[13px] tracking-widest uppercase mt-4 max-w-[280px] md:max-w-sm">
-            FRAME IS A 360° CREATIVE AGENCY BASED IN MIAMI AND MEXICO CITY.
-          </h3>
-
-          {/* Párrafos: Alineados a la derecha para empujar visualmente hacia la imagen */}
-          <div className="mt-12 md:mt-24 flex flex-col items-end text-right">
-            <p className="text-black font-medium text-sm md:text-base leading-relaxed max-w-[300px] md:max-w-[320px] mb-6">
+          <div className="flex flex-col gap-6 md:items-end md:text-right">
+            <p className="text-ink font-medium text-sm md:text-base leading-relaxed max-w-sm">
               Fusionamos moda, música, arte y estrategia para crear conceptos visuales con alma que posicionan a artistas y marcas en el centro de la cultura.
             </p>
-            <p className="text-black font-medium text-sm md:text-base leading-relaxed max-w-[300px] md:max-w-[320px]">
+            <p className="text-ink font-medium text-sm md:text-base leading-relaxed max-w-sm">
               Desde el styling hasta el evento. Desde la campaña hasta el contenido. Cada proyecto es una experiencia dirigida con visión artística y una red de talentos lista para hacerlo realidad.
             </p>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Frame Creatives Lab</span>
           </div>
         </div>
-      </div>
 
-      {/* MITAD INFERIOR (Mobile) / DERECHA (Desktop): Imagen "Glitch" */}
-      <div className="relative w-full md:w-1/2 h-[70vh] md:h-screen bg-[#0a0a0a]">
-        
-        {/* Icono reemplazando la 'F' en la esquina inferior derecha */}
-        <div className="absolute bottom-10 right-8 md:right-16 z-20 flex flex-col items-center">                 
-          <Image 
-            src="/frame-icon.svg" 
-            alt="FRAME Icon"
-            width={64} 
-            height={64}
-            className="w-12 h-12 md:w-16 md:h-16 object-contain"
-            priority // Añadimos priority si este icono es importante para el LCP
-          />
-        </div>
-
-        {/* Grid de 3 columnas para el efecto de repetición */}
-        <div className="absolute inset-0 grid grid-cols-3 w-full h-full">
-          <div className="relative h-full overflow-hidden">
-            <Image src={whoAreWeImg} alt="Model 1" fill className="object-cover grayscale object-[30%_center] scale-105" />
-          </div>
-          <div className="relative h-full overflow-hidden">
-            <Image src={whoAreWeImg} alt="Model 2" fill className="object-cover grayscale object-[40%_center] scale-105" />
-          </div>
-          <div className="relative h-full overflow-hidden">
-            <Image src={whoAreWeImg} alt="Model 3" fill className="object-cover grayscale object-[45%_center] scale-105" />
+        {/* IMAGEN REPETIDA EN 3 COLUMNAS (se conserva el efecto original) */}
+        <div className="relative min-h-[70vw] md:min-h-[620px] grid grid-cols-3 gap-2">
+          {['30%', '40%', '45%'].map((pos, i) => (
+            <div key={i} className="relative overflow-hidden bg-ink">
+              <Image
+                src={whoAreWeImg}
+                alt={`Model ${i + 1}`}
+                fill
+                className="object-cover grayscale scale-105"
+                style={{ objectPosition: `${pos} center` }}
+              />
+            </div>
+          ))}
+          <div className="absolute bottom-4 right-4 bg-paper rounded-full p-3 shadow-lg">
+            <Image src="/frame-icon.svg" alt="FRAME Icon" width={48} height={48} className="w-9 h-9 md:w-12 md:h-12 object-contain" />
           </div>
         </div>
-      </div>
-
-      {/* Firma móvil (solo aparece al final del bloque de texto en mobile) */}
-      <div className="md:hidden absolute bottom-[72vh] left-8">
-        <span className="text-[#D80E0E] font-black text-[10px] tracking-[0.3em] uppercase">
-          Frame Creatives Lab
-        </span>
       </div>
     </section>
   );
