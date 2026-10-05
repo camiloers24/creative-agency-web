@@ -21,7 +21,7 @@ export default function ServicesGrid() {
           <span className="hidden md:block font-mono text-xs uppercase tracking-widest text-ink">Expertise</span>
         </div>
 
-        <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory md:overflow-visible -mx-5 px-5 md:mx-0 md:px-0">
+        <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-pl-5 md:overflow-visible -mx-5 px-5 md:mx-0 md:px-0">
           {SERVICES.map(({ id, title, src, offset }, i) => (
             <Link
               key={id}
