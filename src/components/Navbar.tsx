@@ -4,108 +4,101 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { CircleHighlight } from '@/components/marks';
+
+const LINKS = [
+  { href: '/who-are-we', label: 'Who Are We' },
+  { href: '/services', label: 'Services' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  // Guardamos la ruta en la que se abrió el menú: al cambiar de ruta se cierra solo
+  const [openedAt, setOpenedAt] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  
+
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const isOpen = openedAt === pathname;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Cerrar el menú automáticamente si cambia la ruta
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  const toggleMenu = () => setOpenedAt(isOpen ? null : pathname);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  // Lógica de color: 
-  // Si el menú está abierto, TODO es blanco (porque el overlay es negro).
-  // Si está cerrado, es negro solo en subpáginas sin scroll.
-  const isBlackText = !isHome && !scrolled && !isOpen;
-
-  const navLinkClasses = (href: string) => {
-    const isActive = pathname === href;
-    if (isActive) return 'text-[#D80E0E] font-black text-[10px] tracking-[0.4em] uppercase';
-    return `
-      transition-colors duration-300 font-black text-[10px] tracking-[0.4em] uppercase
-      ${isBlackText ? 'text-black hover:text-black/50' : 'text-white hover:text-white/60'}
-    `;
-  };
+  // En home la barra vive dentro de la tarjeta (transparente); al hacer scroll o en subpáginas es una tarjeta crema
+  const solid = !isHome || scrolled || isOpen;
 
   return (
     <>
-      {/* 1. BARRA SUPERIOR */}
-      <nav className={`fixed top-0 left-0 w-full z-[70] transition-all duration-500 flex justify-between items-center px-8 md:px-16 ${
-        scrolled && !isOpen
-          ? 'py-4 md:py-6 bg-black/20 backdrop-blur-md' 
-          : 'py-6 md:py-10 bg-transparent'
-      }`}>
-        
-        {/* LOGO: Se vuelve blanco si isOpen es true */}
-        <Link href="/" className="relative w-24 md:w-32 h-6 md:h-8">
-          <Image 
-            src="/frame-logo.svg" 
-            alt="FRAME" 
-            fill 
-            className={`object-contain object-left transition-all duration-500 ${
-              isBlackText ? 'brightness-0' : 'brightness-0 invert'
-            }`}
-          />
-        </Link>
-
-        {/* ENLACES DESKTOP */}
-        <ul className="hidden md:flex items-center gap-12">
-          <li><Link href="/who-are-we" className={navLinkClasses('/who-are-we')}>Who Are We</Link></li>
-          <li><Link href="/services" className={navLinkClasses('/services')}>Services</Link></li>
-          <li><Link href="/contact" className={navLinkClasses('/contact')}>Contact</Link></li>
-        </ul>
-
-        {/* BOTÓN HAMBURGUESA / CERRAR */}
-        <button 
-          className="md:hidden flex flex-col gap-[6px] p-2 relative z-[80]" 
-          onClick={toggleMenu}
+      <nav className="fixed top-3 md:top-6 left-0 w-full z-[70] px-3 md:px-6 pointer-events-none">
+        <div
+          className={`pointer-events-auto mx-auto max-w-[1400px] flex items-center justify-between rounded-2xl px-5 md:px-10 py-4 md:py-5 transition-all duration-500 ${
+            solid ? 'bg-paper/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+          }`}
         >
-          <span className={`block w-8 h-[1.5px] transition-all duration-500 ${
-            isOpen ? 'rotate-45 translate-y-[8px] bg-white' : (isBlackText ? 'bg-black' : 'bg-white')
-          }`}></span>
-          <span className={`block w-8 h-[1.5px] transition-all duration-500 ${
-            isOpen ? 'opacity-0' : (isBlackText ? 'bg-black' : 'bg-white')
-          }`}></span>
-          <span className={`block w-8 h-[1.5px] transition-all duration-500 ${
-            isOpen ? '-rotate-45 -translate-y-[8px] bg-white' : (isBlackText ? 'bg-black' : 'bg-white')
-          }`}></span>
-        </button>
+          <Link href="/" className="relative w-24 md:w-32 h-6 md:h-8 shrink-0">
+            <Image src="/frame-logo-dark.svg" alt="FRAME" fill className="object-contain object-left" />
+          </Link>
+
+          {/* ENLACES DESKTOP */}
+          <ul className="hidden md:flex items-center gap-14 text-ink">
+            {LINKS.map(({ href, label }) => {
+              const active = pathname === href;
+              return (
+                <li key={href} className="relative">
+                  <Link
+                    href={href}
+                    className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-60 ${
+                      active ? 'italic' : ''
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                  {active && (
+                    <CircleHighlight className="absolute -inset-x-4 -inset-y-3 w-[calc(100%+2rem)] h-[calc(100%+1.5rem)] pointer-events-none" />
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          <Link
+            href="/contact"
+            className="hidden md:block bg-frame-red text-white text-[11px] font-bold uppercase tracking-[0.2em] px-6 py-3 rounded-full hover:bg-ink transition-colors"
+          >
+            Work with us
+          </Link>
+
+          {/* BOTÓN MENÚ MOBILE (estilo Mzia) */}
+          <button
+            className="md:hidden relative z-[80] font-mono text-[11px] uppercase tracking-widest border border-ink rounded px-3 py-1.5 text-ink"
+            onClick={toggleMenu}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+          >
+            ( {isOpen ? 'Close' : 'Menu'} )
+          </button>
+        </div>
       </nav>
 
-      {/* 2. OVERLAY MOBILE: Animación desde arriba */}
-      <div className={`fixed inset-0 bg-black z-[60] flex flex-col justify-center items-center transition-transform duration-500 ease-in-out md:hidden ${
-        isOpen ? 'translate-y-0' : '-translate-y-full'
-      }`}>
-        <ul className="flex flex-col items-center gap-12 font-black text-2xl tracking-[0.3em] uppercase">
-          <li>
-            <Link href="/who-are-we" className={pathname === '/who-are-we' ? 'text-white' : 'text-[#D80E0E]'}>
-              Who Are We
-            </Link>
-          </li>
-          <li>
-            <Link href="/services" className={pathname === '/services' ? 'text-white' : 'text-[#D80E0E]'}>
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className={pathname === '/contact' ? 'text-white' : 'text-[#D80E0E]'}>
-              Contact
-            </Link>
-          </li>
+      {/* OVERLAY MOBILE */}
+      <div
+        className={`fixed inset-0 bg-charcoal z-[60] flex flex-col justify-center items-center transition-transform duration-500 ease-in-out md:hidden ${
+          isOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-10 font-display text-6xl uppercase">
+          {LINKS.map(({ href, label }) => (
+            <li key={href}>
+              <Link href={href} className={pathname === href ? 'text-white' : 'text-frame-red'}>
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </>
