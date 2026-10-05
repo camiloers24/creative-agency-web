@@ -12,18 +12,9 @@ export default function WhoAreWe() {
         {/* TEXTOS */}
         <div className="flex flex-col justify-between gap-12">
           <div>
-            <div className="relative select-none">
-              <div
-                aria-hidden="true"
-                className="font-display text-frame-red uppercase leading-[0.85] text-[24vw] md:text-[min(10vw,150px)]"
-                style={{ filter: 'url(#redGrain)' }}
-              >
-                Who are <br /> we?
-              </div>
-              <h1 className="absolute inset-0 font-display text-ink uppercase leading-[0.85] text-[24vw] md:text-[min(10vw,150px)]">
-                Who are <br /> we?
-              </h1>
-            </div>
+            <h1 className="font-display text-ink uppercase leading-[0.85] text-[24vw] md:text-[min(10vw,150px)]">
+              Who are <br /> we?
+            </h1>
 
             <h2 className="mt-8 font-mono text-[11px] md:text-xs uppercase tracking-widest text-frame-red max-w-sm">
               FRAME IS A 360° CREATIVE AGENCY BASED IN MIAMI AND MEXICO CITY.

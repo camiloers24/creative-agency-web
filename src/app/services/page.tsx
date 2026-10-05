@@ -2,12 +2,10 @@
 import ServicesHero from '@/components/services/ServicesHero';
 import ServiceSection from '@/components/services/ServiceSection';
 import { SERVICES } from '@/components/services/data';
-import RedGrainFilter from '@/components/RedGrainFilter';
 
 export default function ServicesPage() {
   return (
     <main className="bg-black">
-      <RedGrainFilter />
       <ServicesHero />
       {SERVICES.map((service) => (
         <section key={service.id} id={service.id} className="scroll-mt-32">

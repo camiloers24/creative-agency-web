@@ -1,5 +1,6 @@
 // Hero: tarjeta clara flotando sobre foto B/N (ref. Juanma + Gills)
 import Image from 'next/image';
+import Reveal from '@/components/Reveal';
 import Link from 'next/link';
 import { Scribble, XMark, Heart } from '@/components/marks';
 import RedGrainFilter from '@/components/RedGrainFilter';
@@ -41,17 +42,17 @@ export default function HeroCard() {
         </div>
 
         {/* Fila foto + título (ref. Gills "SUSHI") */}
-        <div className="relative mt-8 md:mt-10 grid grid-cols-5 gap-3 md:gap-5 items-center">
+        <Reveal className="relative mt-8 md:mt-10 grid grid-cols-5 gap-3 md:gap-5 items-center">
           <div className="relative col-span-2 aspect-[5/2] overflow-hidden">
             <Image src={PHOTO_A} alt="Frame Creatives Lab" fill className="object-cover grayscale" />
           </div>
           <h2 className="col-span-3 font-display text-ink uppercase leading-[0.85] text-[11vw] md:text-[min(8vw,120px)]">
             Creatives&apos; Lab
           </h2>
-        </div>
+        </Reveal>
 
         {/* Bloque tipo Gills: fotos + texto + enlace rojo */}
-        <div className="relative mt-12 md:mt-16 grid grid-cols-5 gap-3 md:gap-5">
+        <Reveal delay={0.1} className="relative mt-12 md:mt-16 grid grid-cols-5 gap-3 md:gap-5">
           <div className="relative col-span-1 aspect-[3/4] overflow-hidden bg-ink">
             <Image src={PHOTO_C} alt="" fill className="object-cover grayscale" />
             <XMark className="absolute -top-1 -right-1 w-8 md:w-12" />
@@ -74,7 +75,7 @@ export default function HeroCard() {
               Know the lab →
             </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

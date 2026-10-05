@@ -1,5 +1,6 @@
 // src/components/HQ.tsx
 import Image from 'next/image';
+import Reveal from '@/components/Reveal';
 import { Paperclip } from '@/components/marks';
 
 const PROFILES = [
@@ -26,7 +27,7 @@ export default function HQ() {
     <section className="relative w-full bg-charcoal text-white py-20 md:py-32 px-5 md:px-12 overflow-hidden">
       <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-x-32 items-start">
         {PROFILES.map(({ name, handle, role, src, tilt, offset }) => (
-          <div key={handle} className={`flex flex-col items-center md:items-start gap-10 group ${offset}`}>
+          <Reveal key={handle} className={`flex flex-col items-center md:items-start gap-10 group ${offset}`}>
             {/* Polaroid */}
             <div className={`polaroid relative w-[78vw] md:w-80 ${tilt} transition-transform group-hover:rotate-0 duration-700`}>
               <Paperclip className="absolute -top-7 right-5 w-6 h-14" />
@@ -44,7 +45,7 @@ export default function HQ() {
                 {role}
               </p>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
 
@@ -54,18 +55,9 @@ export default function HQ() {
           <span className="font-mono text-[10px] tracking-widest uppercase mb-1 text-white/50">( Location )</span>
           <span className="font-mono text-xs md:text-sm tracking-widest uppercase text-frame-red">Miami and Mexico City.</span>
         </div>
-        <div className="relative select-none">
-          <div
-            aria-hidden="true"
-            className="font-display text-frame-red leading-[0.8] text-[40vw] md:text-[min(22vw,320px)]"
-            style={{ filter: 'url(#redGrain)' }}
-          >
-            HQ
-          </div>
-          <h2 className="absolute inset-0 font-display text-white leading-[0.8] text-[40vw] md:text-[min(22vw,320px)]">
-            HQ
-          </h2>
-        </div>
+        <h2 className="font-display text-frame-red leading-[0.8] text-[40vw] md:text-[min(22vw,320px)]">
+          HQ
+        </h2>
       </div>
     </section>
   );

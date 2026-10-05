@@ -1,5 +1,6 @@
 // Sección de servicio compartida: tarjeta crema o charcoal, título con eco rojo y fotos escalonadas
 import Image from 'next/image';
+import Reveal from '@/components/Reveal';
 import type { Service } from './data';
 
 const OFFSETS = ['', 'md:mt-14', 'md:mt-5', 'md:mt-20', 'md:mt-9'];
@@ -9,18 +10,11 @@ const PERFORATIONS_BOTTOM = ['11', '11A', '12', '12A'];
 function Title({ lines, dark }: { lines: string[]; dark: boolean }) {
   const cls = 'font-display uppercase leading-[0.85] text-[17vw] md:text-[min(11vw,160px)]';
   return (
-    <div className="relative select-none">
-      <div aria-hidden="true" className={`${cls} text-frame-red`} style={{ filter: 'url(#redGrain)' }}>
-        {lines.map((l, i) => (
-          <span key={i} className="block">{l}</span>
-        ))}
-      </div>
-      <h2 className={`${cls} absolute inset-0 ${dark ? 'text-white' : 'text-ink'}`}>
-        {lines.map((l, i) => (
-          <span key={i} className="block">{l}</span>
-        ))}
-      </h2>
-    </div>
+    <h2 className={`${cls} ${dark ? 'text-white' : 'text-ink'}`}>
+      {lines.map((l, i) => (
+        <span key={i} className="block">{l}</span>
+      ))}
+    </h2>
   );
 }
 
@@ -81,10 +75,10 @@ export default function ServiceSection({ service }: { service: Service }) {
           </div>
         ) : (
           <>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
+            <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
               <Title lines={title} dark={dark} />
               <Items items={items} dark={dark} />
-            </div>
+            </Reveal>
 
             <div
               className={
@@ -95,8 +89,9 @@ export default function ServiceSection({ service }: { service: Service }) {
               style={single ? undefined : { gridTemplateColumns: `repeat(${images.length}, minmax(0, 1fr))` }}
             >
               {images.map((src, i) => (
-                <div
+                <Reveal
                   key={src + i}
+                  delay={i * 0.08}
                   className={`${single ? '' : `flex-none w-[62vw] md:w-auto snap-start ${OFFSETS[i % OFFSETS.length]}`}`}
                 >
                   <div className={`relative overflow-hidden bg-ink ${single ? 'aspect-[16/10]' : 'aspect-[3/4]'}`}>
@@ -107,7 +102,7 @@ export default function ServiceSection({ service }: { service: Service }) {
                       className="object-cover grayscale hover:grayscale-0 hover:scale-105 transition-all duration-700"
                     />
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </>

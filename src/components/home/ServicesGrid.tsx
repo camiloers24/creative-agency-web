@@ -1,5 +1,6 @@
 // Core Services: fila escalonada de fotos con pie de foto (ref. Juanma)
 import Image from 'next/image';
+import Reveal from '@/components/Reveal';
 import Link from 'next/link';
 
 const SERVICES = [
@@ -23,11 +24,8 @@ export default function ServicesGrid() {
 
         <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-pl-5 md:overflow-visible -mx-5 px-5 md:mx-0 md:px-0">
           {SERVICES.map(({ id, title, src, offset }, i) => (
-            <Link
-              key={id}
-              href={`/services#${id}`}
-              className={`group flex-none w-[62vw] md:w-auto snap-start ${offset}`}
-            >
+            <Reveal key={id} delay={i * 0.08} className={`flex-none w-[62vw] md:w-auto snap-start ${offset}`}>
+            <Link href={`/services#${id}`} className="group block">
               <div className="relative aspect-[3/4] overflow-hidden bg-ink">
                 <Image
                   src={`https://images.unsplash.com/${src}?q=80&w=900`}
@@ -41,6 +39,7 @@ export default function ServicesGrid() {
                 <span>(00{i + 1})</span>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </div>

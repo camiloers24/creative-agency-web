@@ -1,5 +1,6 @@
 // CTA: sección oscura con tarjeta crema, polaroids y foto-tira (ref. Mzia)
 import Image from 'next/image';
+import Reveal from '@/components/Reveal';
 import Link from 'next/link';
 import { CircleHighlight, Paperclip } from '@/components/marks';
 
@@ -15,7 +16,7 @@ export default function CtaSection() {
     <section className="relative w-full bg-charcoal px-5 md:px-12 py-24 md:py-36 overflow-hidden">
       <div className="mx-auto max-w-[1400px] grid md:grid-cols-2 gap-14 md:gap-8 items-center">
         {/* Polaroid con el icono F */}
-        <div className="relative flex justify-center">
+        <Reveal className="relative flex justify-center">
           <div className="polaroid relative w-[62vw] md:w-[26vw] -rotate-3">
             <Paperclip className="absolute -top-7 right-4 w-6 h-14" />
             <div className="relative aspect-square bg-ink">
@@ -23,9 +24,9 @@ export default function CtaSection() {
             </div>
             <span className="absolute bottom-2 left-3 font-script text-ink text-xl">Frame Creatives Lab</span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative">
+        <Reveal delay={0.15} className="relative">
           <h2 className="font-display text-white uppercase leading-[0.85] text-[16vw] md:text-[min(8vw,120px)]">
             Start the <br /> <span className="text-frame-red">Revolution</span>
           </h2>
@@ -58,7 +59,7 @@ export default function CtaSection() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

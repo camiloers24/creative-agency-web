@@ -1,6 +1,6 @@
 // src/app/contact/page.tsx
 import Image from 'next/image';
-import RedGrainFilter from '@/components/RedGrainFilter';
+import Reveal from '@/components/Reveal';
 import { Scribble } from '@/components/marks';
 
 export default function ContactPage() {
@@ -14,23 +14,10 @@ export default function ContactPage() {
           priority
           className="object-cover grayscale opacity-80"
         />
-        <RedGrainFilter />
 
         <div className="paper-card relative z-10 mx-auto max-w-[1400px] rounded-3xl px-5 md:px-12 pt-28 md:pt-36 pb-14 md:pb-20 overflow-hidden">
-          {/* TÍTULO: eco rojo desenfocado detrás del texto nítido (ref. Gills) */}
           <div className="relative select-none">
-            <div
-              aria-hidden="true"
-              className="font-display text-frame-red uppercase leading-[0.85] text-[15vw] md:text-[min(14vw,200px)]"
-              style={{ filter: 'url(#redGrain)' }}
-            >
-              Ready to work <br />
-              <span className="flex items-center gap-4 md:gap-8">
-                <span className="h-[3vw] w-[18vw] md:w-[12vw] inline-block" />
-                with us?
-              </span>
-            </div>
-            <h1 className="absolute inset-0 font-display text-ink uppercase leading-[0.85] text-[15vw] md:text-[min(14vw,200px)]">
+            <h1 className="font-display text-ink uppercase leading-[0.85] text-[15vw] md:text-[min(14vw,200px)]">
               Ready to work <br />
               <span className="flex items-center gap-4 md:gap-8">
                 <span className="h-[3vw] w-[18vw] md:w-[12vw] bg-frame-red inline-block" />
@@ -42,7 +29,7 @@ export default function ContactPage() {
 
           {/* DATOS DE CONTACTO + POLAROID */}
           <div className="mt-14 md:mt-20 grid md:grid-cols-5 gap-12 md:gap-8 items-start">
-            <div className="md:col-span-3 flex flex-col divide-y divide-ink/15 border-y border-ink/15">
+            <Reveal className="md:col-span-3 flex flex-col divide-y divide-ink/15 border-y border-ink/15">
               <div className="py-6 md:py-8 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
                 <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-frame-red">( Email us )</span>
                 <a
@@ -70,16 +57,16 @@ export default function ContactPage() {
                   @FRAMECREATIVESLAB
                 </a>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="md:col-span-2 flex justify-center md:justify-end">
+            <Reveal delay={0.15} className="md:col-span-2 flex justify-center md:justify-end">
               <div className="polaroid relative w-[60vw] md:w-[22vw] md:max-w-[300px] rotate-3 bg-white">
                 <div className="relative aspect-square bg-ink">
                   <Image src="/frame-icon.svg" alt="Frame Icon" fill className="object-contain p-8" />
                 </div>
                 <span className="absolute bottom-2 left-3 font-script text-ink text-xl">Frame Creatives Lab</span>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

@@ -10,13 +10,7 @@ export default function ServicesHero() {
       <Image src={modelImg} alt="" fill priority className="object-cover grayscale opacity-80" />
 
       <div className="paper-card relative z-10 mx-auto max-w-[1400px] rounded-3xl px-5 md:px-12 pt-28 md:pt-36 pb-14 md:pb-20 overflow-hidden">
-        <div className="relative select-none">
-          {/* Eco rojo desenfocado arriba y abajo, texto nítido al centro */}
-          <div aria-hidden="true" className={`${cls} text-frame-red`} style={{ filter: 'url(#redGrain)' }}>
-            Services. <br /> Services. <br /> Services.
-          </div>
-          <h1 className={`${cls} absolute inset-0 flex items-center justify-center text-ink`}>Services.</h1>
-        </div>
+        <h1 className={`${cls} text-ink`}>Services.</h1>
 
         <div className="mt-8 flex flex-col items-center gap-3">
           <div className="w-16 h-[3px] bg-frame-red" />

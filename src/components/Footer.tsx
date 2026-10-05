@@ -13,8 +13,6 @@ export default function Footer() {
           </ul>
           <ul className="flex flex-col gap-1">
             <li><Link href="https://www.instagram.com/framecreativeslab/" className="hover:text-frame-red transition-colors">Instagram</Link></li>
-            <li><Link href="#" className="hover:text-frame-red transition-colors">Behance</Link></li>
-            <li><Link href="#" className="hover:text-frame-red transition-colors">LinkedIn</Link></li>
           </ul>
           <p>Miami / <br /> Mexico City</p>
           <p className="md:max-w-xs md:text-right text-ink/60">
