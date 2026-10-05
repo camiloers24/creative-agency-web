@@ -73,6 +73,15 @@ public/
 - **Images:** all photos are currently Unsplash placeholders. Remote images are allowed only from `images.unsplash.com` (`next.config.ts`); add the new host there if you use another one, or put files in `public/`.
 - **Footer social links:** only Instagram is listed. Add Behance / LinkedIn in `src/components/Footer.tsx` when the URLs are available.
 
+## Documentation
+
+Read these before making changes:
+
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — routes, components, z-index, known issues
+- [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) — tokens, patterns and decisions agreed with the client
+- [`docs/CONTENT.md`](docs/CONTENT.md) — the source of truth for all copy, services and contact data
+- [`docs/CHANGE-CHECKLIST.md`](docs/CHANGE-CHECKLIST.md) — gotchas and how to verify a change
+
 ## Branches
 
 - `main` — current design (deployed on Vercel).
