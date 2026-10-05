@@ -25,7 +25,7 @@ export default function Footer() {
         {/* Wordmark gigante (ref. Juanma) */}
         <div className="mt-10 md:mt-14 flex items-end justify-between font-display uppercase leading-[0.8] text-[16vw] md:text-[min(17vw,240px)]">
           <span className="text-ink">Frame</span>
-          <span className="text-frame-red">.CLAB</span>
+          <span className="text-frame-red text-[0.5em] leading-[0.95] text-right">Creatives&apos; <br /> Lab</span>
         </div>
       </div>
     </footer>

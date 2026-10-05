@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Scribble, XMark, Heart } from '@/components/marks';
+import RedGrainFilter from '@/components/RedGrainFilter';
 
 const BG = 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1600';
 const PHOTO_A = 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=900';
@@ -15,13 +16,7 @@ export default function HeroCard() {
       <Image src={BG} alt="" fill priority className="object-cover grayscale opacity-80" />
 
       {/* Filtro SVG: desenfoque + grano para la palabra roja */}
-      <svg width="0" height="0" className="absolute" aria-hidden="true">
-        <filter id="redGrain" x="-10%" y="-20%" width="120%" height="140%">
-          <feGaussianBlur stdDeviation="14" result="b" />
-          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" result="n" />
-          <feDisplacementMap in="b" in2="n" scale="22" />
-        </filter>
-      </svg>
+      <RedGrainFilter />
 
       <div className="paper-card relative z-10 mx-auto max-w-[1400px] rounded-3xl px-5 md:px-12 pt-28 md:pt-32 pb-12 md:pb-16 overflow-hidden">
         {/* WORDMARK: FRAME rojo desenfocado con grano (ref. Gills) */}
